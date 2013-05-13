@@ -11,11 +11,11 @@
  * @copyright    Copyright (c) 2011, Bill Erickson
  * @license      http://opensource.org/licenses/gpl-2.0.php GNU Public License
  */
- 
+
 /**
  * Don't Update Plugin
  * @since 1.0.0
- * 
+ *
  * This prevents you being prompted to update if there's a public plugin
  * with the same name.
  *
@@ -97,13 +97,13 @@ function be_custom_menu_order( $menu_ord ) {
 
 /**
  * Pretty Printing
- * 
+ *
  * @author Chris Bratlien
  *
  * @param mixed
  * @return null
  */
-function be_pp( $obj, $label = '' ) {  
+function be_pp( $obj, $label = '' ) {
 
 	$data = json_encode(print_r($obj,true));
     ?>
@@ -122,7 +122,7 @@ function be_pp( $obj, $label = '' ) {
       height: 800px;
       overflow: scroll;
       }
-    </style>    
+    </style>
     <script type="text/javascript">
       var doStuff = function(){
         var obj = <?php echo $data; ?>;
@@ -136,19 +136,19 @@ function be_pp( $obj, $label = '' ) {
         var pre = document.createElement('pre');
         var h2 = document.createElement('h2');
         pre.innerHTML = obj;
- 
+
         h2.innerHTML = '<?php echo addslashes($label); ?>';
         logger.appendChild(h2);
-        logger.appendChild(pre);      
+        logger.appendChild(pre);
       };
       window.addEventListener ("DOMContentLoaded", doStuff, false);
- 
+
     </script>
     <?php
 }
 
 /**
- * Disable WPSEO Nag on Dev Server 
+ * Disable WPSEO Nag on Dev Server
  *
  */
 function be_disable_wpseo_nag( $options ) {
@@ -158,5 +158,5 @@ function be_disable_wpseo_nag( $options ) {
 }
 add_filter( 'option_wpseo', 'be_disable_wpseo_nag' );
 
-// Disable WPSEO columns on edit screen 
+// Disable WPSEO columns on edit screen
 add_filter( 'wpseo_use_page_analysis', '__return_false' );
